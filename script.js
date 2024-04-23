@@ -1,5 +1,5 @@
 //Lesson04
-const message1 = " This is a short message";
+const message1 = " This is a message";
 const message2 = "This is a long message where length is more than 30";
 
 const displayMessage = function (str) {
