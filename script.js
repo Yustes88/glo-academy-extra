@@ -1,23 +1,7 @@
-// const num = 266219;
-
-// const numArray = num.toString().split("");
-
-// const multipliedNumResult = numArray.reduce((a, b) => a * Number(b));
-
-// const powerResult = multipliedNumResult ** 3;
-
-// const twoFirstSliceDigits = powerResult.toString().substring(0, 2);
-
-// console.log(`Произведение цифр числа ${num}: ${multipliedNumResult}`);
-
-// console.log(
-//   `Первые две цифры числа ${powerResult}: ${Number(twoFirstSliceDigits)}`
-// );
-
 //Lesson03
 
 //task 1
-let lang = "en";
+let lang = "ru";
 
 const daysOfWeekRu = "Пон, Вт, Ср, Чт, Пт, Сб, Вс";
 const daysOfWeekEn = "Mon, Tue, Wed, Th, Fr, Sat, Sun";
@@ -45,28 +29,35 @@ switch (lang) {
 }
 
 //многомерный массив
-const daysOfWeek = {
-  ru: [
-    "Понедельник",
-    "Вторник",
-    "Среда",
-    "Четверг",
-    "Пятница",
-    "Суббота",
-    "Воскресенье",
+const daysOfWeek = [
+  [
+    "ru",
+    [
+      "Понедельник",
+      "Вторник",
+      "Среда",
+      "Четверг",
+      "Пятница",
+      "Суббота",
+      "Воскресенье",
+    ],
   ],
-  en: [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
+  [
+    "en",
+    [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday",
+    ],
   ],
-};
+];
 
-console.log(daysOfWeek[lang]);
+const selectedLanguage = daysOfWeek.find((item) => item[0] === lang);
+console.log(selectedLanguage[1]);
 
 //task 2
 const namePerson = "Юля";
