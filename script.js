@@ -1,25 +1,7 @@
 //Lesson05
 const numbersArray = ["28", "55", "123", "288", "499", "2000", "7456"];
 
-const filterNumbers1 = function (arr) {
-  arr.map((num) => {
-    if (num.startsWith("2") || num.startsWith("4")) {
-      console.log(num);
-    }
-  });
-};
-
-//OR
-const filterNumbers2 = function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
-      console.log(arr[i]);
-    }
-  }
-};
-
-//OR
-const filterNumbers3 = function (arr) {
+const filterNumbers = function (arr) {
   let filteredArr = [];
 
   arr.filter((num) => {
@@ -28,7 +10,9 @@ const filterNumbers3 = function (arr) {
     }
   });
 
-  console.log(filteredArr.join(" "));
+  filteredArr.forEach((item) => {
+    console.log(item);
+  });
 };
 
 const isPrime = function (num) {
@@ -49,7 +33,5 @@ const getPrime = function (start, end) {
   }
 };
 
-filterNumbers1(numbersArray);
-filterNumbers2(numbersArray);
-filterNumbers3(numbersArray);
+filterNumbers(numbersArray);
 getPrime(1, 100);
