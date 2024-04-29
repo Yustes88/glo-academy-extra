@@ -1,37 +1,39 @@
-//Lesson05
-const numbersArray = ["28", "55", "123", "288", "499", "2000", "7456"];
+//Lesson07
+//Lesson07
 
-const filterNumbers = function (arr) {
-  let filteredArr = [];
+const displayDaysOfTheWeek = function () {
+  const week = [
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+    'Воскресенье',
+  ]
 
-  arr.filter((num) => {
-    if (num.startsWith("2") || num.startsWith("4")) {
-      filteredArr.push(num);
+  const currentDate = new Date()
+  const currentDayOfTheWeek = currentDate.getDay()
+
+  const weekElement = document.querySelector('.week')
+  const listBlockElement = document.createElement('ul')
+
+  week.map(dayOfTheWeek => {
+    const element = document.createElement('li')
+
+    if (week.indexOf(dayOfTheWeek) === currentDayOfTheWeek - 1) {
+      element.style.fontWeight = 'bold'
     }
-  });
 
-  filteredArr.forEach((item) => {
-    console.log(item);
-  });
-};
-
-const isPrime = function (num) {
-  for (let i = 2; i < num; i++) {
-    if (num % i === 0) {
-      return false;
+    if (week.indexOf(dayOfTheWeek) === 5 || week.indexOf(dayOfTheWeek) === 6) {
+      element.style.fontStyle = 'italic'
     }
-  }
 
-  return num > 1;
-};
+    element.innerText = dayOfTheWeek
+    listBlockElement.appendChild(element)
+  })
 
-const getPrime = function (start, end) {
-  for (let i = start; i <= end; i++) {
-    if (isPrime(i)) {
-      console.log(`Делители числа ${i}: 1 и ${i}`);
-    }
-  }
-};
+  weekElement.appendChild(listBlockElement)
+}
 
-filterNumbers(numbersArray);
-getPrime(1, 100);
+displayDaysOfTheWeek()
