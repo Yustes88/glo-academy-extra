@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.week ul {
+  list-style: none;
+  font-size: 2rem;
+  text-align: center;
+}
