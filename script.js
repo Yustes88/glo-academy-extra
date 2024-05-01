@@ -74,8 +74,21 @@ const changeEnding = function (number, word) {
   return result
 }
 
-const displayDate = function () {
-  const dateElement = document.querySelector('.date')
+const addZero = function (number) {
+  let strArr = String(number).split('')
+
+  if (strArr.length === 1) {
+    strArr.unshift('0')
+  }
+
+  return strArr.join('')
+}
+
+console.log(addZero(2))
+
+const updateTimeMessage = function () {
+  const fullDateElement = document.querySelector('.fullMessage')
+  const shortDateElement = document.querySelector('.shortMessage')
 
   setInterval(() => {
     const date = new Date()
@@ -89,15 +102,24 @@ const displayDate = function () {
 
     const hourEnding = changeHourEnding(currentHour)
 
-    const result = `Сегодня ${week[currentDayOfTheWeek - 1]}, ${currentDate} ${
-      months[currentMonth]
-    } ${currentYear} года, ${currentHour} ${hourEnding} ${currentMinutes} ${changeEnding(
+    const longDateResult = `Сегодня ${
+      week[currentDayOfTheWeek - 1]
+    }, ${currentDate} ${months[
+      currentMonth
+    ].toLowerCase()} ${currentYear} года, ${currentHour} ${hourEnding} ${currentMinutes} ${changeEnding(
       currentMinutes,
       'минут',
     )} ${currentSeconds} ${changeEnding(currentSeconds, 'секунд')}`
 
-    dateElement.textContent = result
+    const shortDateResult = `${addZero(currentDate)}.${addZero(
+      currentMonth,
+    )}.${addZero(currentYear)} - ${addZero(currentHour)}:${addZero(
+      currentMinutes,
+    )}:${addZero(currentSeconds)}`
+
+    fullDateElement.textContent = longDateResult
+    shortDateElement.textContent = shortDateResult
   }, 1000)
 }
 
-displayDate()
+updateTimeMessage()

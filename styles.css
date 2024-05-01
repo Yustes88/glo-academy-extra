@@ -3,8 +3,7 @@ body {
   padding: 0;
 }
 
-.week ul {
-  list-style: none;
+.container {
   font-size: 2rem;
   text-align: center;
 }
