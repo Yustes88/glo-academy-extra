@@ -84,8 +84,6 @@ const addZero = function (number) {
   return strArr.join('')
 }
 
-console.log(addZero(2))
-
 const updateTimeMessage = function () {
   const fullDateElement = document.querySelector('.fullMessage')
   const shortDateElement = document.querySelector('.shortMessage')
